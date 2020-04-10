@@ -1,5 +1,5 @@
 # switch
-Switch dns for pre env
+Switch DNS for pre env
 
 ## SYNOPSIS
 
