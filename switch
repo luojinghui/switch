@@ -9,7 +9,7 @@ switch [options]
 switch [env] [network]
 --
   Switch pre/default dns config.
-  https://github.com/luojinghui/switch-dns/
+  https://github.com/luojinghui/switch/
 
   Available options are
 p,pre!      switch pre dns
@@ -33,8 +33,8 @@ done
 
 if (( is_pre )); then
   networksetup -setdnsservers Wi-Fi 182.92.129.95
-  networksetup -setdnsservers Thunderbolt 182.92.129.95
+  # networksetup -setdnsservers Thunderbolt 182.92.129.95
 else
   networksetup -setdnsservers Wi-Fi empty
-  networksetup -setdnsservers Thunderbolt empty
+  # networksetup -setdnsservers Thunderbolt empty
 fi

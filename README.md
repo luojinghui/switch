@@ -21,12 +21,6 @@ $ switch -p
 
 ## Installation
 
-### Basic install
-
-The preferred way of installation is to simply add the `switch` script
-somewhere into your path (e.g. add the directory to your `PATH` environment
-or copy `switch` into an existing included path like `/usr/local/bin`).
-
 #### [Oh-My-Zsh](http://ohmyz.sh/)
 
 1. 终端执行：
@@ -40,6 +34,10 @@ $ git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/switch
   ```
 3. Reload source:`source .zshrc`
 
+#### Update
+```bash
+$ rm -rf $ZSH_CUSTOM/plugins/switch && git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/switch
+```
 
 ## Less is more
 Super simple open method：
