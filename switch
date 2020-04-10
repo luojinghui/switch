@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+OPTIONS_STUCKLONG=t
+# shellcheck disable=SC2034
+OPTIONS_KEEPDASHDASH=
+# shellcheck disable=SC2034
+OPTIONS_SPEC="\
+switch [options]
+switch [env] [network]
+--
+  Switch pre/default dns config.
+  https://github.com/luojinghui/switch-dns/
+
+  Available options are
+p,pre!      switch pre dns
+"
+
+# https://github.com/koalaman/shellcheck/wiki/SC1090
+# shellcheck source=/dev/null
+SUBDIRECTORY_OK='Yes' . "$(git --exec-path)/git-sh-setup"
+
+# Defaults
+is_pre=0
+is_default=0
+
+while test $# != 0; do
+  case "$1" in
+  --pre) is_pre=1;;
+  --) shift; break ;;
+  esac
+  shift
+done
+
+if (( is_pre )); then
+  networksetup -setdnsservers Wi-Fi 182.92.129.95
+  networksetup -setdnsservers Thunderbolt 182.92.129.95
+else
+  networksetup -setdnsservers Wi-Fi empty
+  networksetup -setdnsservers Thunderbolt empty
+fi
