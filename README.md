@@ -31,7 +31,7 @@ or copy `switch` into an existing included path like `/usr/local/bin`).
 
 1. 终端执行：
 ```bash
-$ git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/git-open
+$ git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/switch
 ```
 1. Edit `~/.zshrc`:
   ```bash
