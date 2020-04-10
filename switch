@@ -33,8 +33,10 @@ done
 
 if (( is_pre )); then
   networksetup -setdnsservers Wi-Fi 182.92.129.95
+  echo "now is pre env!"
   # networksetup -setdnsservers Thunderbolt 182.92.129.95
 else
   networksetup -setdnsservers Wi-Fi empty
+  echo "now is default env!"
   # networksetup -setdnsservers Thunderbolt empty
 fi
