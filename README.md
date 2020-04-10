@@ -33,12 +33,12 @@ or copy `switch` into an existing included path like `/usr/local/bin`).
 ```bash
 $ git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/switch
 ```
-1. Edit `~/.zshrc`:
+2. Edit `~/.zshrc`:
   ```bash
   ...
   plugins=(... switch)
   ```
-1. Reload source:`source .zshrc`
+3. Reload source:`source .zshrc`
 
 
 ## Less is more
