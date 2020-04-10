@@ -15,12 +15,15 @@ switch [env] [network]
 p,pre!      switch pre dns
 "
 
+SUBDIRECTORY_OK='Yes'
+
 # Defaults
 is_pre=0
 is_default=0
 
 while test $# != 0; do
   case "$1" in
+  -p) is_pre=1;;
   --pre) is_pre=1;;
   --) shift; break ;;
   esac
