@@ -9,7 +9,7 @@ switch [options]
 switch [env] [network]
 --
   Switch pre/default dns config.
-  https://github.com/luojinghui/switch/
+  http://10.172.94.171/frontend/xian/switch
 
   Available options are
 p,pre!      switch pre dns
