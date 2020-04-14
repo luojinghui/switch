@@ -63,21 +63,31 @@ done
 if (( is_pre )); then
   if (($isHaveWifi == '1')); then
   networksetup -setdnsservers Wi-Fi 182.92.129.95
-  elif (( $isHaveAX == '1' )); then
+  fi
+
+  if (( $isHaveAX == '1' )); then
   networksetup -setdnsservers AX88x72A 182.92.129.95
-  elif (( $isHaveLan == '1' )); then
+  fi
+
+  if (( $isHaveLan == '1' )); then
   networksetup -setdnsservers "USB 10/100/1000 LAN" 182.92.129.95
   fi
+
   echo "now is pre env!"
   # networksetup -setdnsservers Thunderbolt 182.92.129.95
 else
   if (($isHaveWifi == '1')); then
   networksetup -setdnsservers Wi-Fi empty
-  elif (( $isHaveAX == '1' )); then
+  fi
+
+  if (( $isHaveAX == '1' )); then
   networksetup -setdnsservers AX88x72A empty
-  elif (( $isHaveLan == '1' )); then
+  fi
+
+  if (( $isHaveLan == '1' )); then
   networksetup -setdnsservers "USB 10/100/1000 LAN" empty
   fi
+  
   dscacheutil -flushcache
   echo "now is default env!"
   # networksetup -setdnsservers Thunderbolt empty
