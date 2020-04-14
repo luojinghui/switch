@@ -1,3 +1,7 @@
+# Switch DNS Tools
+# author: Luojinghui
+# email: luojinghui424@gmail.com
+
 #!/usr/bin/env bash
 
 OPTIONS_STUCKLONG=t
@@ -17,9 +21,35 @@ p,pre!      switch pre dns
 
 SUBDIRECTORY_OK='Yes'
 
+strWifi="Wi-Fi"
+strAX="AX88x72A"
+srtLAN="USB 10/100/1000 LAN"
+
 # Defaults
 is_pre=0
 is_default=0
+device="$(networksetup -listallnetworkservices)"
+
+if [[ $device =~ $strWifi ]];
+then
+    isHaveWifi='1';
+else 
+    isHaveWifi='0';
+fi
+
+if [[ $device =~ $strAX ]];
+then
+    isHaveAX='1';
+else 
+    isHaveAX='0';
+fi
+
+if [[ $device =~ $srtLAN ]];
+then
+    isHaveLan='1';
+else 
+    isHaveLan='0';
+fi
 
 while test $# != 0; do
   case "$1" in
@@ -31,11 +61,24 @@ while test $# != 0; do
 done
 
 if (( is_pre )); then
+  if (($isHaveWifi == '1')); then
   networksetup -setdnsservers Wi-Fi 182.92.129.95
+  elif (( $isHaveAX == '1' )); then
+  networksetup -setdnsservers AX88x72A 182.92.129.95
+  elif (( $isHaveLan == '1' )); then
+  networksetup -setdnsservers "USB 10/100/1000 LAN" 182.92.129.95
+  fi
   echo "now is pre env!"
   # networksetup -setdnsservers Thunderbolt 182.92.129.95
 else
+  if (($isHaveWifi == '1')); then
   networksetup -setdnsservers Wi-Fi empty
+  elif (( $isHaveAX == '1' )); then
+  networksetup -setdnsservers AX88x72A empty
+  elif (( $isHaveLan == '1' )); then
+  networksetup -setdnsservers "USB 10/100/1000 LAN" empty
+  fi
+  dscacheutil -flushcache
   echo "now is default env!"
   # networksetup -setdnsservers Thunderbolt empty
 fi
