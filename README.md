@@ -25,7 +25,6 @@ $ switch -p
 
 1. 终端执行：
 ```bash
-# 注意，需要切换到小鱼私有npm镜像地址
 $ git clone git@github.com:luojinghui/switch.git $ZSH_CUSTOM/plugins/switch
 ```
 2. Edit `~/.zshrc`:
