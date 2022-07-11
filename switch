@@ -13,7 +13,7 @@ switch [options]
 switch [env] [network]
 --
   Switch pre/default dns config.
-  http://10.172.94.171/frontend/xian/switch
+  https://github.com/luojinghui/switch
 
   Available options are
 p,pre!      switch pre dns
@@ -62,19 +62,19 @@ done
 
 if (( is_pre )); then
   if (($isHaveWifi == '1')); then
-  networksetup -setdnsservers Wi-Fi 182.92.129.95
+  networksetup -setdnsservers Wi-Fi $2
   fi
 
   if (( $isHaveAX == '1' )); then
-  networksetup -setdnsservers AX88x72A 182.92.129.95
+  networksetup -setdnsservers AX88x72A $2
   fi
 
   if (( $isHaveLan == '1' )); then
-  networksetup -setdnsservers "USB 10/100/1000 LAN" 182.92.129.95
+  networksetup -setdnsservers "USB 10/100/1000 LAN" $2
   fi
 
   echo "now is pre env!"
-  # networksetup -setdnsservers Thunderbolt 182.92.129.95
+  # networksetup -setdnsservers Thunderbolt $2
 else
   if (($isHaveWifi == '1')); then
   networksetup -setdnsservers Wi-Fi empty
